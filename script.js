@@ -41,16 +41,8 @@ btnScrollTo.addEventListener('click',(e) => {
   console.log('Current Scroll X/Y',window.pageXOffset,window.pageYOffset);
   section1.scrollIntoView({behavior:'smooth'});
 });
+
 /////////////////////////////////////////////
-//Page Navigation
-// document.querySelectorAll('.nav__link').forEach(function(el){
-//   el.addEventListener('click',function(e){
-//     e.preventDefault();
-//     const id = this.getAttribute('href');
-//     document.querySelector(id).scrollIntoView({behavior: 'smooth'});
-//
-//   });
-// });
 //1.add event listener to common parent ELEMENT
 //2. determine what element originated the eveniet
 document.querySelector('.nav__links').addEventListener('click',function(e){
@@ -99,9 +91,7 @@ navi.addEventListener('mouseover',handleHover.bind(0.5));
 navi.addEventListener('mouseout',handleHover.bind(1));
 
 //////////////Sticky Navigation Bar/////////////////////////
-// const intialCoords = section1.getBoundingClientRect();window.addEventListener('scroll',function(){  if(window.scrollY > intialCoords.top)   {     document.querySelector('.nav').classList.add('sticky');   }  else {     document.querySelector('.nav').classList.remove('sticky');     }  });
-/////////////////Sticky navigation usingn intersection observer API/////////////////// const obsCallBack = function(entries, observer) {}; const obsOptions = {root : null, threshold : [0,]
-  // }; const observer = new IntersectionObserver(obsCallBack,obsOptions);observer.observe(nav);
+/////////////////Sticky navigation usingn intersection observer API///////////////
   const stickyNav = function(entries) {
     const [entry] = entries;
     if(!entry.isIntersecting)
@@ -240,76 +230,3 @@ const slider = function () {
   });
 };
 slider();
-
-
-////////////////////////////////////////////////////
-///////////////////////////////////////////////////
-////Lectures Delete Insert and create element in dom
-// console.log(document.documentElement);
-//
-// const header = document.querySelector('.header');
-// const all = document.querySelectorAll('.section');
-// console.log(all);
-//
-// document.getElementById('section--1');
-// const message = document.createElement('div');
-// message.classList.add('cookie-message');
-// message.textContent = 'Hello rana g';
-// message.innerHTML = `we use cookied for improved functionality and analytics.<button class = 'btn btn--close-cookie'>click on</button>`;
-// // header.prepend(message);
-// header.append(message);
-// document.querySelector('.btn--close-cookie').addEventListener('click',()=>
-// message.remove());
-// // header.append(message.cloneNode(true));
-//
-// console.log(getComputedStyle(message).height);
-// message.style.height = Number.parseFloat(getComputedStyle(message).height,10) + 40 + 'px';
-//
-// document.documentElement.style.setProperty('--color-primary','orangered');
-// const logo = document.querySelector('.nav__logo');
-// console.log(logo.alt);
-// console.log(logo.src);//it gives us absolute path
-// console.log(logo.getAttribute('src'));
-// console.log(logo.setAttribute('company','bankist'));
-//
-// //nav__links
-// const link = document.querySelector('.nav__link--btn');
-// console.log(link.href);
-// console.log(link.getAttribute('href'));
-
-// const randomInt = (min, max) =>
-//   Math.floor(Math.random() * (max - min + 1) + min);
-// const randColor = () =>
-//   `rgb(${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)})`;
-//
-//
-//   document.querySelector('.nav__link').addEventListener('click', function (e) {
-//     this.style.backgroundColor = randColor();
-// });
-//
-//
-// document.querySelector('.nav').addEventListener('click',(e) => {
-//   this.style.backgroundColor = randColor();
-// });
-//////////////////dom traversing
-// const h1 = document.querySelector('h1');
-// console.log(h1.querySelectorAll('.highlight'));
-// console.log(h1.childNodes);
-// console.log(h1.children);
-// h1.firstElementChild.style.color = 'white';
-// h1.lastElementChild.style.color = 'orangered';
-//
-// //Going upwards
-// console.log(h1.parentNode);
-// console.log(h1.parentElement);
-//
-// //close ELEMENTS
-// h1.closest('h1').style.backgroundColor = 'lightpink';
-// h1.closest('.header').style.backgroundColor = 'lightgreen';
-//
-// //Going sideways : siblings
-// console.log(h1.previousElementSibling);
-// console.log(h1.nextElementSibling);
-//
-// console.log(h1.previousSibling);
-// console.log(h1.nextSibling);
